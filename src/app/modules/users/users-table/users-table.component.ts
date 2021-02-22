@@ -62,7 +62,9 @@ export class UsersTableComponent implements OnInit {
   }
 
   public handleDelete(user: UserModel): void {
-    const dialogRef = this.dialog.open(DeleteUserDialogComponent);
+    const dialogRef = this.dialog.open(DeleteUserDialogComponent, {
+      data: user.name,
+    });
 
     dialogRef
       .afterClosed()
