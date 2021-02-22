@@ -1,0 +1,24 @@
+<mat-toolbar [color]="'accent'" class="toolbar">
+  <a routerLink="/">
+    <img class="toolbar__logo" alt="Volvo logo" src="/assets/logo.png" />
+  </a>
+
+  <div class="toolbar__navigation">
+    <a
+      class="toolbar__navigation-link"
+      routerLink="/"
+      routerLinkActive="toolbar__navigation-link--active"
+      mat-ripple
+      aria-label="Home link"
+      ><span>Home</span></a
+    >
+    <a
+      class="toolbar__navigation-link"
+      routerLink="/users"
+      routerLinkActive="toolbar__navigation-link--active"
+      mat-ripple
+      aria-label="Users link"
+      ><span>Users</span></a
+    >
+  </div>
+</mat-toolbar>
