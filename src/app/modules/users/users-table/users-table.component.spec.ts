@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
 
 import { UsersTableComponent } from './users-table.component';
 
@@ -9,6 +11,7 @@ describe('UsersTableComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UsersTableComponent],
+      imports: [MatDialogModule, StoreModule.forRoot({}, {})],
     }).compileComponents();
   });
 
@@ -18,8 +21,7 @@ describe('UsersTableComponent', () => {
     fixture.detectChanges();
   });
 
-  // TODO: FIX
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
