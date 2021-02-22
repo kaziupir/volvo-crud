@@ -5,6 +5,7 @@ import { combineLatest } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { UserModel } from 'src/app/store/users/models/user.model';
 import { DeleteUserDialogComponent } from '../delete-user-dialog/delete-user-dialog.component';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 
 const data: UserModel[] = [
   {
@@ -96,11 +97,11 @@ export class UsersTableComponent implements OnInit {
   }
 
   public handleAdd(): void {
-    console.log('add');
+    const dialogRef = this.dialog.open(UserDialogComponent);
   }
 
   public handleEdit(user: UserModel): void {
-    console.log('edit', user);
+    const dialogRef = this.dialog.open(UserDialogComponent, { data: user });
   }
 
   public handleDelete(user: UserModel): void {
