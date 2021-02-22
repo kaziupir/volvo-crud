@@ -9,4 +9,8 @@ export class UsersComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public handleInputChange(value: string): void {
+    console.log(value);
+  }
 }

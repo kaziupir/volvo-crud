@@ -1,0 +1,17 @@
+<div class="bar">
+  <h2 class="bar__title">List of users</h2>
+  <div class="bar__search">
+    <mat-form-field>
+      <mat-label>Search by name</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter name"
+        [formControl]="nameControl"
+      />
+    </mat-form-field>
+    <button (click)="clearInput()" class="bar__search-clear" mat-button>
+      Clear
+    </button>
+  </div>
+</div>
