@@ -42,19 +42,15 @@
   <ng-container matColumnDef="menu">
     <th mat-header-cell *matHeaderCellDef></th>
     <td class="numeric" mat-cell *matCellDef="let element">
-      <button
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
-      >
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User menu">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button (click)="handleEdit(element)" mat-menu-item>
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
-        <button mat-menu-item>
+        <button (click)="handleDelete(element)" mat-menu-item>
           <mat-icon>delete</mat-icon>
           <span>Delete</span>
         </button>
@@ -66,6 +62,12 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<button class="add-button" mat-fab color="accent" aria-label="Add element">
+<button
+  (click)="handleAdd()"
+  class="add-button"
+  mat-fab
+  color="accent"
+  aria-label="Add element"
+>
   <mat-icon>add</mat-icon>
 </button>

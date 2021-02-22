@@ -7,9 +7,15 @@ import { UsersTableComponent } from './users-table/users-table.component';
 import { TableToolbarComponent } from './table-toolbar/table-toolbar.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteUserDialogComponent } from './delete-user-dialog/delete-user-dialog.component';
 
 @NgModule({
-  declarations: [UsersComponent, UsersTableComponent, TableToolbarComponent],
+  declarations: [
+    UsersComponent,
+    UsersTableComponent,
+    TableToolbarComponent,
+    DeleteUserDialogComponent,
+  ],
   imports: [
     CommonModule,
     UsersRoutingModule,

@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { UserModel } from 'src/app/store/users/models/user.model';
+import { DeleteUserDialogComponent } from '../delete-user-dialog/delete-user-dialog.component';
 
 const data: UserModel[] = [
   {
@@ -81,7 +83,7 @@ export class UsersTableComponent implements OnInit {
 
   public dataSource$: Observable<UserModel[]>;
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.dataSource$ = combineLatest([of(data), this.filter$]).pipe(
@@ -91,5 +93,26 @@ export class UsersTableComponent implements OnInit {
         );
       })
     );
+  }
+
+  public handleAdd(): void {
+    console.log('add');
+  }
+
+  public handleEdit(user: UserModel): void {
+    console.log('edit', user);
+  }
+
+  public handleDelete(user: UserModel): void {
+    const dialogRef = this.dialog.open(DeleteUserDialogComponent);
+
+    dialogRef
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe((result: boolean) => {
+        if (result) {
+          console.log('delete', user);
+        }
+      });
   }
 }
