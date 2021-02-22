@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteUserDialogComponent } from './delete-user-dialog/delete-user-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { UserStore } from 'src/app/store/users/user-store.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     UsersRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    UserStore,
   ],
 })
 export class UsersModule {}
